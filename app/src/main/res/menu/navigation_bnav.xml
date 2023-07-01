@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_bnav_myday"
+        android:enabled="true"
+        android:title="My Day"/>
+
+    <item
+        android:id="@+id/navigation_bnav_timeline"
+        android:enabled="true"
+        android:title="Timeline"/>
+
+    <item
+        android:id="@+id/navigation_bnav_mybod"
+        android:enabled="true"
+        android:title="MyBod"/>
+
+    <item
+        android:id="@+id/navigation_bnav_trends"
+        android:enabled="true"
+        android:title="Trends"/>
+
+</menu>

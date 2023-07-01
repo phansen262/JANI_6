@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_snav_home"
+        android:enabled="true"
+        android:title="Home"/>
+
+    <group android:id="@+id/navigation_snav_plangroup">
+        <item
+            android:id="@+id/navigation_snav_plangroup_trainingplan"
+            android:enabled="true"
+            android:title="Training Plan"/>
+
+        <item
+            android:id="@+id/navigation_snav_plangroup_manageplans"
+            android:enabled="true"
+            android:title="Manage Plans"/>
+
+        <item
+            android:id="@+id/navigation_snav_plangroup_goals"
+            android:enabled="true"
+            android:title="Goals"/>
+
+    </group>
+
+    <group android:id="@+id/navigation_snav_calendargroup">
+
+        <item
+            android:id="@+id/navigation_snav_calendargroup_week"
+            android:enabled="true"
+            android:title="Week"/>
+
+        <item
+            android:id="@+id/navigation_snav_calendargroup_month"
+            android:enabled="true"
+            android:title="Month"/>
+
+    </group>
+
+    <group android:id="@+id/navigation_snav_itemsgroup">
+        <item
+            android:id="@+id/navigation_snav_itemsgroup_exercises"
+            android:enabled="true"
+            android:title="Exercises"/>
+
+        <item
+            android:id="@+id/navigation_snav_itemsgroup_workouts"
+            android:enabled="true"
+            android:title="Workouts"/>
+
+        <item
+            android:id="@+id/navigation_snav_itemsgroup_equipment"
+            android:enabled="true"
+            android:title="Equipment"/>
+
+        <item
+            android:id="@+id/navigation_snav_itemsgroup_loc_events"
+            android:enabled="true"
+            android:title="Locations &amp; Events"/>
+
+    </group>
+
+</menu>
