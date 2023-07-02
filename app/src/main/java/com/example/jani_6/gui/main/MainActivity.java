@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item){
 
+        //If statement is actually needed
         if(sideNavBar.getmToggle().onOptionsItemSelected(item)){
             sideNavBar.setNavViewListener(this);
             return true;

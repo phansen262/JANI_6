@@ -30,6 +30,42 @@
             android:exported="true"
             android:theme="@style/Theme.JANI_6"/>
 
+        <activity android:name=".gui.snav.calendar.CalendarActivity"
+            android:exported="true"
+            android:theme="@style/Theme.JANI_6"/>
+
+        <activity android:name=".gui.snav.equipment.EquipmentActivity"
+            android:exported="true"
+            android:theme="@style/Theme.JANI_6"/>
+
+        <activity android:name=".gui.snav.exercise.ExerciseActivity"
+            android:exported="true"
+            android:theme="@style/Theme.JANI_6"/>
+
+        <activity android:name=".gui.snav.goals.GoalsActivity"
+            android:exported="true"
+            android:theme="@style/Theme.JANI_6"/>
+
+        <activity android:name=".gui.snav.loc_event.LocAndEventActivity"
+            android:exported="true"
+            android:theme="@style/Theme.JANI_6"/>
+
+        <activity android:name=".gui.snav.settings.SettingsActivity"
+            android:exported="true"
+            android:theme="@style/Theme.JANI_6"/>
+
+        <activity android:name=".gui.snav.trainingplan.ManagePlansActivity"
+            android:exported="true"
+            android:theme="@style/Theme.JANI_6"/>
+
+        <activity android:name=".gui.snav.trainingplan.TrainingPlanActivity"
+            android:exported="true"
+            android:theme="@style/Theme.JANI_6"/>
+
+        <activity android:name=".gui.snav.workout.WorkoutActivity"
+            android:exported="true"
+            android:theme="@style/Theme.JANI_6"/>
+
     </application>
 
 </manifest>
