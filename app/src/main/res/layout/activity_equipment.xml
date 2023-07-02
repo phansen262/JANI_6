@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.drawerlayout.widget.DrawerLayout
 
@@ -12,11 +14,31 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <com.google.android.material.tabs.TabLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tabs_ae"
+                app:layout_scrollFlags="enterAlways|scroll">
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Lifecycle"/>
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Static"/>
+
+            </com.google.android.material.tabs.TabLayout>
+
             <androidx.fragment.app.FragmentContainerView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:id="@+id/frag_container_ae"/>
+                android:id="@+id/frag_container_ae"
+                android:name="com.example.jani_6.gui.snav.equipment.LifecycleEquipmentFrag"
+                tools:layout="@layout/fragment_equipment_lifecycle_main" />
 
         </LinearLayout>
 
