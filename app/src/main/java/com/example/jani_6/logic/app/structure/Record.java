@@ -1,4 +1,4 @@
 package com.example.jani_6.logic.app.structure;
 
-public interface RecordItem {
+public abstract class Record {
 }
