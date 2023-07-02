@@ -21,28 +21,22 @@ import com.example.jani_6.gui.snav.trainingplan.TrainingPlanActivity;
 import com.example.jani_6.gui.snav.workout.WorkoutActivity;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.HashMap;
+
 public class SideNavBar {
 
-    private enum SNAVLocation {
-        HOME(MainActivity.class, R.id.navigation_snav_home),
-        TRAINING_PLAN(TrainingPlanActivity.class, R.id.navigation_snav_plangroup_trainingplan),
-        MANAGE_PLANS(ManagePlansActivity.class, R.id.navigation_snav_plangroup_manageplans),
-        GOALS(GoalsActivity.class, R.id.navigation_snav_plangroup_goals),
-        CALENDAR(CalendarActivity.class, R.id.navigation_snav_calendargroup_calendar),
-        EXERCISES(ExerciseActivity.class, R.id.navigation_snav_itemsgroup_exercises),
-        WORKOUTS(WorkoutActivity.class, R.id.navigation_snav_itemsgroup_workouts),
-        EQUIPMENT(EquipmentActivity.class, R.id.navigation_snav_supportgroup_equipment),
-        LOCANDEVENT(LocAndEventActivity.class, R.id.navigation_snav_supportgroup_loc_events),
-        SETTINGS(SettingsActivity.class, R.id.navigation_snav_settingsgroup_settings);
-
-        final Class<? extends AppCompatActivity> activityClass;
-        final int locationMenuID;
-
-        SNAVLocation(Class<? extends AppCompatActivity> activityClass, int locationMenuID){
-            this.activityClass = activityClass;
-            this.locationMenuID = locationMenuID;
-        }
-    }
+    HashMap<Integer, Class<? extends AppCompatActivity>> snavLocations = new HashMap<Integer, Class<? extends AppCompatActivity>>(){{
+        put(R.id.navigation_snav_home, MainActivity.class);
+        put(R.id.navigation_snav_plangroup_trainingplan, TrainingPlanActivity.class);
+        put(R.id.navigation_snav_plangroup_manageplans, ManagePlansActivity.class);
+        put(R.id.navigation_snav_plangroup_goals, GoalsActivity.class);
+        put(R.id.navigation_snav_calendargroup_calendar, CalendarActivity.class);
+        put(R.id.navigation_snav_itemsgroup_exercises, ExerciseActivity.class);
+        put(R.id.navigation_snav_itemsgroup_workouts, WorkoutActivity.class);
+        put(R.id.navigation_snav_supportgroup_equipment, EquipmentActivity.class);
+        put(R.id.navigation_snav_supportgroup_loc_events, LocAndEventActivity.class);
+        put(R.id.navigation_snav_settingsgroup_settings, SettingsActivity.class);
+    }};
 
     private final ActionBarDrawerToggle mToggle;
     private final ActionBar mBar;
@@ -68,18 +62,14 @@ public class SideNavBar {
         NavigationView navigationView = activity.findViewById(R.id.navigation_view_gsm);
         navigationView.setNavigationItemSelectedListener(item -> {
 
-            for(SNAVLocation navLocation : SNAVLocation.values()){
-                if(item.getItemId() == navLocation.locationMenuID){
-                    activity.startActivity(new Intent(activity, navLocation.activityClass));
+            for(Integer menuID : snavLocations.keySet()){
+                if(menuID == item.getItemId()){
+                    activity.startActivity(new Intent(activity, snavLocations.get(menuID)));
                     activity.finish();
                     break;
                 }
             }
 
-            /*if(item.getTitle().toString().equals("Home")){
-                activity.startActivity(new Intent(activity, MainActivity.class));
-            }
-            activity.finish();*/
             return false;
         });
     }
