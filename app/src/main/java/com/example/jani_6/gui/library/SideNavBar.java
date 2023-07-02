@@ -41,7 +41,7 @@ public class SideNavBar {
     private final ActionBarDrawerToggle mToggle;
     private final ActionBar mBar;
 
-    public SideNavBar(@NonNull AppCompatActivity activity, int barTitle){
+    public SideNavBar(@NonNull AppCompatActivity activity, int drawerID, int barTitle){
 
         //Handle Action Bar Creation
         mBar = activity.getSupportActionBar();
@@ -50,14 +50,14 @@ public class SideNavBar {
         setBarTitle(barTitle);
 
         //Handle drawer layout and toggle
-        DrawerLayout drawerLayout = activity.findViewById(R.id.drawer_am);
+        DrawerLayout drawerLayout = activity.findViewById(drawerID);
         mToggle = new ActionBarDrawerToggle(activity, drawerLayout, barTitle, R.string.app_name);
         drawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
     }
 
     //Set Listener for Navigation
-    public void setNavViewListener(AppCompatActivity activity){
+    public void setNavViewListener(@NonNull AppCompatActivity activity){
 
         NavigationView navigationView = activity.findViewById(R.id.navigation_view_gsm);
         navigationView.setNavigationItemSelectedListener(item -> {

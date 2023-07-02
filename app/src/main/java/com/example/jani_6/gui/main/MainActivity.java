@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Initiate side navigation bar menu
-        sideNavBar = new SideNavBar(this, R.string.app_name);
+        sideNavBar = new SideNavBar(this, R.id.drawer_am, R.string.app_name);
 
     }
 
