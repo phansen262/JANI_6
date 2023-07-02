@@ -27,14 +27,9 @@
     <group android:id="@+id/navigation_snav_calendargroup">
 
         <item
-            android:id="@+id/navigation_snav_calendargroup_week"
+            android:id="@+id/navigation_snav_calendargroup_calendar"
             android:enabled="true"
-            android:title="Week"/>
-
-        <item
-            android:id="@+id/navigation_snav_calendargroup_month"
-            android:enabled="true"
-            android:title="Month"/>
+            android:title="Calendar"/>
 
     </group>
 
@@ -49,15 +44,28 @@
             android:enabled="true"
             android:title="Workouts"/>
 
+    </group>
+
+    <group android:id="@+id/navigation_snav_supportgroup">
+
         <item
-            android:id="@+id/navigation_snav_itemsgroup_equipment"
+            android:id="@+id/navigation_snav_supportgroup_equipment"
             android:enabled="true"
             android:title="Equipment"/>
 
         <item
-            android:id="@+id/navigation_snav_itemsgroup_loc_events"
+            android:id="@+id/navigation_snav_supportgroup_loc_events"
             android:enabled="true"
             android:title="Locations &amp; Events"/>
+
+    </group>
+
+    <group android:id="@+id/navigation_snav_settingsgroup">
+
+        <item
+            android:id="@+id/navigation_snav_settingsgroup_settings"
+            android:enabled="true"
+            android:title="Settings"/>
 
     </group>
 
