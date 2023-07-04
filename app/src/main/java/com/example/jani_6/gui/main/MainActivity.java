@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.jani_6.R;
 import com.example.jani_6.gui.library.SideNavBar;
+import com.example.jani_6.gui.library.SnavActivity;
 import com.example.jani_6.logic.app.plan_objects.equipment.StaticEquipment;
 import com.example.jani_6.logic.app.plan_objects.equipment.StaticEquipmentDAO;
 import com.example.jani_6.logic.app.structure.room.JDatabase;
@@ -18,9 +19,7 @@ import com.example.jani_6.logic.app.support_objects.Sport;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
-
-    public SideNavBar sideNavBar;
+public class MainActivity extends SnavActivity {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState){
@@ -31,18 +30,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Initiate side navigation bar menu
-        sideNavBar = new SideNavBar(this, R.id.drawer_am, R.string.app_name);
-    }
-
-    //Handle Options Selected Event From SideNavBar
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item){
-
-        //If statement is actually needed
-        if(sideNavBar.getmToggle().onOptionsItemSelected(item)){
-            sideNavBar.setNavViewListener(this);
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+        //sideNavBar = new SideNavBar(this, R.id.drawer_am, R.string.app_name);
+        useSNAV(this, R.id.drawer_am, R.string.app_name);
     }
 }

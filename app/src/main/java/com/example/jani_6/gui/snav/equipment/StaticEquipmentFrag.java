@@ -10,11 +10,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.jani_6.R;
 import com.example.jani_6.databinding.FragmentEquipmentStaticMainBinding;
 
 public class StaticEquipmentFrag extends Fragment {
 
     private FragmentEquipmentStaticMainBinding mBinding;
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -38,7 +40,7 @@ public class StaticEquipmentFrag extends Fragment {
 
         button.setOnClickListener(view -> {
             requireActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(EquipmentActivity.getViewBinding().fragContainerAe.getId(), frag)
+                    .replace(requireActivity().requireViewById(R.id.frag_container_ae).getId(), frag)
                     .commit();
         });
     }
