@@ -11,6 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.jani_6.R;
 import com.example.jani_6.gui.main.MainActivity;
+import com.example.jani_6.logic.app.structure.room.JDatabaseHandler;
+import com.example.jani_6.logic.app.structure.threads.MExecutor;
+
+import java.util.ArrayList;
 
 public class LauncherActivity extends AppCompatActivity {
 
@@ -22,11 +26,16 @@ public class LauncherActivity extends AppCompatActivity {
         //Entrance time log to set control for minimum splashscreen display
         long start = System.currentTimeMillis();
 
+        //TODO: Move initialization into async task
         /*Start Initialization Methods*/
         setContentView(R.layout.activity_launcher);
 
         setServers();
         /*End Initialization Methods*/
+
+        //TODO:  Remove this ill fated code
+        //LEAVE COMMENTED UNLESS YOU ARE SURE!!!
+        //nukeDatabase();
 
         //Exit time log to set control for minimum splashscreen display
         long end = System.currentTimeMillis();
@@ -50,6 +59,12 @@ public class LauncherActivity extends AppCompatActivity {
     }
 
     private void setServers(){
+        JDatabaseHandler.setAppServer(this);
+    }
 
+    //DO NOT INVOKE UNLESS NECESSARY!!!!!!!
+    private void nukeDatabase(){
+        MExecutor.loadTask(() -> JDatabaseHandler.jDatabase.clearAllTables(),
+                () -> System.err.println("CLEARED ALL ROOM TABLES!!!!!"));
     }
 }

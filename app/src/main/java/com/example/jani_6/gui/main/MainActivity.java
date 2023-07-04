@@ -9,6 +9,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.jani_6.R;
 import com.example.jani_6.gui.library.SideNavBar;
+import com.example.jani_6.logic.app.plan_objects.equipment.StaticEquipment;
+import com.example.jani_6.logic.app.plan_objects.equipment.StaticEquipmentDAO;
+import com.example.jani_6.logic.app.structure.room.JDatabase;
+import com.example.jani_6.logic.app.structure.room.JDatabaseHandler;
+import com.example.jani_6.logic.app.structure.threads.MExecutor;
+import com.example.jani_6.logic.app.support_objects.Sport;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
         //Initiate side navigation bar menu
         sideNavBar = new SideNavBar(this, R.id.drawer_am, R.string.app_name);
-
     }
 
     //Handle Options Selected Event From SideNavBar
