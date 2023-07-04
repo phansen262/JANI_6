@@ -2,6 +2,7 @@ package com.example.jani_6.gui.snav.equipment;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,7 +17,7 @@ public class EquipmentActivity extends AppCompatActivity {
 
     public SideNavBar sideNavBar;
 
-    private ActivityEquipmentBinding mBinding;
+    private static ActivityEquipmentBinding mBinding;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState){
@@ -51,8 +52,21 @@ public class EquipmentActivity extends AppCompatActivity {
 
             }
         });
+
+        mBinding.fragContainerAe.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() {
+            @Override
+            public void onViewAttachedToWindow(@NonNull View view) {
+
+            }
+
+            @Override
+            public void onViewDetachedFromWindow(@NonNull View view) {
+
+            }
+        });
     }
 
+    public static ActivityEquipmentBinding getViewBinding(){return mBinding;}
 
     //Handle Options Selected Event From SideNavBar
     @Override

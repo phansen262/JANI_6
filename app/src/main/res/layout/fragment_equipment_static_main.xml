@@ -6,11 +6,29 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
+        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Static"
-            android:textSize="25dp"/>
+            android:layout_marginVertical="20dp"
+            android:text="View All"
+            android:textSize="30dp"
+            android:id="@+id/button_viewall_fesm"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp"
+            android:text="View Groups"
+            android:textSize="30dp"
+            android:id="@+id/button_viewgroups_fesm"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp"
+            android:text="Create New"
+            android:textSize="30dp"
+            android:id="@+id/button_createnew_fesm"/>
 
     </LinearLayout>
 </layout>
