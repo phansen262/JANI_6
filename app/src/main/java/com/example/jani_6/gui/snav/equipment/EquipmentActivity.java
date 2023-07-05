@@ -15,16 +15,18 @@ import com.example.jani_6.gui.library.SideNavBar;
 import com.example.jani_6.gui.library.SnavActivity;
 import com.google.android.material.tabs.TabLayout;
 
+import java.lang.ref.WeakReference;
+
 public class EquipmentActivity extends SnavActivity {
 
-    public SideNavBar sideNavBar;
-
     private ActivityEquipmentBinding mBinding;
+    private static WeakReference<EquipmentActivity> selfReference;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState){
 
         super.onCreate(savedInstanceState);
+        selfReference = new WeakReference<EquipmentActivity>(this);
 
         //Initiate layout
         mBinding = ActivityEquipmentBinding.inflate(getLayoutInflater());
@@ -58,7 +60,26 @@ public class EquipmentActivity extends SnavActivity {
 
             }
         });
+    }
 
+    @Override
+    public void useBackButton(){
+        super.useBackButton();
+        mBinding.tabsAe.setVisibility(View.GONE);
+    }
 
+    @Override
+    public void useSNAV(AppCompatActivity activity, int drawerID, int titleID){
+        super.useSNAV(activity, drawerID, titleID);
+        mBinding.tabsAe.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    protected void loadBackBehavior() {
+        mBinding.tabsAe.setVisibility(View.VISIBLE);
+    }
+
+    public static WeakReference<EquipmentActivity> getSelfReference() {
+        return selfReference;
     }
 }

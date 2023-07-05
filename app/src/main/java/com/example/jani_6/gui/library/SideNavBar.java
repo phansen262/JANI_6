@@ -81,4 +81,6 @@ public class SideNavBar {
 
     //Allow toggle to be "got" at location, needed within location onOptionsItemSelected method
     public ActionBarDrawerToggle getmToggle(){return mToggle;}
+
+    public ActionBar getmBar(){return mBar;}
 }

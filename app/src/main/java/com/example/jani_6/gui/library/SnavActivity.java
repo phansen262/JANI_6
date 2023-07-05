@@ -5,12 +5,14 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.jani_6.R;
+
 import java.util.Objects;
 
 public class SnavActivity extends AppCompatActivity {
 
-    public SideNavBar sideNavBar;
-    public boolean usingSNAV;
+    protected SideNavBar sideNavBar;
+    protected boolean usingSNAV;
 
     //Add SNAV
     public void useSNAV(AppCompatActivity activity, int drawerID, int titleID){
@@ -22,7 +24,7 @@ public class SnavActivity extends AppCompatActivity {
 
     public void useBackButton(){
 
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        sideNavBar.getmBar().setHomeAsUpIndicator(R.drawable.baseline_arrow_back_24);
         usingSNAV = false;
     }
 
@@ -31,10 +33,27 @@ public class SnavActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item){
 
         //If statement is actually needed
-        if(sideNavBar.getmToggle().onOptionsItemSelected(item)){
+        if(usingSNAV && sideNavBar.getmToggle().onOptionsItemSelected(item)){
             sideNavBar.setNavViewListener(this);
             return true;
+        } else if (!usingSNAV){
+            loadBackBehavior();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    //Empty method to be overriden by child class to provide behavior on back button
+    protected void loadBackBehavior(){}
+
+    public SideNavBar getSideNavBar() {
+        return sideNavBar;
+    }
+
+    public boolean isUsingSNAV() {
+        return usingSNAV;
+    }
+
+    public void setUsingSNAV(boolean usingSNAV) {
+        this.usingSNAV = usingSNAV;
     }
 }

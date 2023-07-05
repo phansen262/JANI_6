@@ -39,6 +39,7 @@ public class StaticEquipmentFrag extends Fragment {
     private void setNavButtonListeners(Button button, Fragment frag){
 
         button.setOnClickListener(view -> {
+            EquipmentActivity.getSelfReference().get().useBackButton();
             requireActivity().getSupportFragmentManager().beginTransaction()
                     .replace(requireActivity().requireViewById(R.id.frag_container_ae).getId(), frag)
                     .commit();
