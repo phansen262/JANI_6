@@ -37,7 +37,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:id="@+id/frag_container_ae"
-                android:name="com.example.jani_6.gui.snav.equipment.LifecycleEquipmentFrag"
+                android:name="com.example.jani_6.gui.snav.equipment.lifecycle.LifecycleEquipmentFrag"
                 tools:layout="@layout/fragment_equipment_lifecycle_main" />
 
         </LinearLayout>

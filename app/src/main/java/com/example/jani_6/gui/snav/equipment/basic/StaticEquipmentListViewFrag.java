@@ -1,4 +1,4 @@
-package com.example.jani_6.gui.snav.equipment;
+package com.example.jani_6.gui.snav.equipment.basic;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

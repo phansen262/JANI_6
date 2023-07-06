@@ -1,7 +1,8 @@
-package com.example.jani_6.logic.app.plan_objects.equipment;
+package com.example.jani_6.logic.app.plan_objects.equipment.basic;
 
 import androidx.room.Entity;
 
+import com.example.jani_6.logic.app.plan_objects.equipment.Equipment;
 import com.example.jani_6.logic.app.structure.AppObjectDict;
 import com.example.jani_6.logic.app.support_objects.Sport;
 

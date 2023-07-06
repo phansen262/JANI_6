@@ -1,4 +1,4 @@
-package com.example.jani_6.gui.snav.equipment;
+package com.example.jani_6.gui.snav.equipment.basic;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.jani_6.R;
 import com.example.jani_6.databinding.FragmentEquipmentStaticMainBinding;
+import com.example.jani_6.gui.snav.equipment.EquipmentActivity;
 
 public class StaticEquipmentFrag extends Fragment {
 
@@ -32,16 +33,16 @@ public class StaticEquipmentFrag extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         //Set temporary listeners for buttons to navigate to new locations
-        setNavButtonListeners(mBinding.buttonViewallFesm, new StaticEquipmentListViewFrag());
-        setNavButtonListeners(mBinding.buttonCreatenewFesm, new NewStaticEquipmentFrag());
+        setNavButtonListeners(mBinding.buttonViewallFesm, new StaticEquipmentListViewFrag(), "STATIC_VIEWALL");
+        setNavButtonListeners(mBinding.buttonCreatenewFesm, new NewStaticEquipmentFrag(), "STATIC_CREATENEW");
     }
 
-    private void setNavButtonListeners(Button button, Fragment frag){
+    private void setNavButtonListeners(Button button, Fragment frag, String tag){
 
         button.setOnClickListener(view -> {
             EquipmentActivity.getSelfReference().get().useBackButton();
             requireActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(requireActivity().requireViewById(R.id.frag_container_ae).getId(), frag)
+                    .replace(requireActivity().requireViewById(R.id.frag_container_ae).getId(), frag, tag)
                     .commit();
         });
     }

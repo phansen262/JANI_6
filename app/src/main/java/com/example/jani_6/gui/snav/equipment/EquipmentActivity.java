@@ -1,18 +1,17 @@
 package com.example.jani_6.gui.snav.equipment;
 
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.Fragment;
 
 import com.example.jani_6.R;
 import com.example.jani_6.databinding.ActivityEquipmentBinding;
-import com.example.jani_6.gui.library.SideNavBar;
 import com.example.jani_6.gui.library.SnavActivity;
+import com.example.jani_6.gui.snav.equipment.basic.StaticEquipmentFrag;
+import com.example.jani_6.gui.snav.equipment.lifecycle.LifecycleEquipmentFrag;
 import com.google.android.material.tabs.TabLayout;
 
 import java.lang.ref.WeakReference;
@@ -76,10 +75,19 @@ public class EquipmentActivity extends SnavActivity {
 
     @Override
     protected void loadBackBehavior() {
-        mBinding.tabsAe.setVisibility(View.VISIBLE);
+
+        String currentTag = getCurrentFragment(this);
+        if(currentTag.equals("STATIC_VIEWALL") || currentTag.equals("STATIC_CREATENEW")){
+            mBinding.tabsAe.setVisibility(View.VISIBLE);
+            getSupportFragmentManager().beginTransaction().replace(mBinding.fragContainerAe.getId(),
+                    new StaticEquipmentFrag(), "STATIC").commit();
+        }
+
     }
 
     public static WeakReference<EquipmentActivity> getSelfReference() {
         return selfReference;
     }
+
+
 }

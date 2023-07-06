@@ -4,9 +4,13 @@ import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.example.jani_6.R;
+import com.example.jani_6.logic.app.plan_objects.activities.Activity;
 
+import java.util.List;
 import java.util.Objects;
 
 public class SnavActivity extends AppCompatActivity {
@@ -55,5 +59,17 @@ public class SnavActivity extends AppCompatActivity {
 
     public void setUsingSNAV(boolean usingSNAV) {
         this.usingSNAV = usingSNAV;
+    }
+
+    public String getCurrentFragment(AppCompatActivity activity){
+
+        List<Fragment> fragments = activity.getSupportFragmentManager().getFragments();
+        if(fragments != null){
+            for(Fragment fragment : fragments){
+                if(fragment != null && fragment.isVisible())
+                    return fragment.getTag();
+            }
+        }
+        return null;
     }
 }
