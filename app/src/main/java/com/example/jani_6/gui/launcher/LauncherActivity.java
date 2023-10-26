@@ -33,10 +33,6 @@ public class LauncherActivity extends AppCompatActivity {
         setServers();
         /*End Initialization Methods*/
 
-        //TODO:  Remove this ill fated code
-        //LEAVE COMMENTED UNLESS YOU ARE SURE!!!
-        //nukeDatabase();
-
         //Exit time log to set control for minimum splashscreen display
         long end = System.currentTimeMillis();
 
@@ -53,18 +49,15 @@ public class LauncherActivity extends AppCompatActivity {
         }
     }
 
+    //Method to move to main activity
     private void toMainActivity(){
         startActivity(new Intent(this, MainActivity.class));
         finish();
     }
 
+    //Handles server and database initialization on app startup. 
+    //Methods for handling versioning and safe checking/validating stored data
     private void setServers(){
         JDatabaseHandler.setAppServer(this);
-    }
-
-    //DO NOT INVOKE UNLESS NECESSARY!!!!!!!
-    private void nukeDatabase(){
-        MExecutor.loadTask(() -> JDatabaseHandler.jDatabase.clearAllTables(),
-                () -> System.err.println("CLEARED ALL ROOM TABLES!!!!!"));
     }
 }
